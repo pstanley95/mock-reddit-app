@@ -1,0 +1,22 @@
+.header {
+    background-color: rgba(190, 190, 190, 0.63);
+    margin-top: 0;
+    padding: 1.5vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 1.2vh;
+    box-shadow: inset;
+    position: fixed;
+    width: 100%;
+}
+
+.logo {
+    max-height: 4vh;
+}
+
+.spacer {
+    height: 15vh;
+    width: 100%;
+}

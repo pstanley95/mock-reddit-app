@@ -1,56 +1,21 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+import Header from './features/header/Header';
 import './App.css';
+import ArticleList from './features/articles/ArticlesList';
 
+const mockArticles = [
+  { id: 1, title: 'Article 1', content: 'Content of Article 1', initialVotes: 10},
+  { id: 2, title: 'Article 2', content: 'Content of Article 2', initialVotes: -2},
+  { id: 3, title: 'Article 3', content: 'Content of Article 3', initialVotes: 1000},
+  { id: 1, title: 'Article 1', content: 'Content of Article 1', initialVotes: 10},
+  { id: 2, title: 'Article 2', content: 'Content of Article 2', initialVotes: -2},
+  { id: 3, title: 'Article 3', content: 'Content of Article 3', initialVotes: 1000}
+]
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      <Header />
+      <ArticleList articles={mockArticles}/>
     </div>
   );
 }
