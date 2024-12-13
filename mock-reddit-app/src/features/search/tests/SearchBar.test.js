@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import SearchBar from '../SearchBar'
+import Header from '../../header/Header';
 import userEvent from '@testing-library/user-event'
 
 const mockArticles = [
@@ -15,7 +16,11 @@ test('renders correctly', () => {
     expect(asFragment()).toMatchSnapshot();
 })
 
-test('updates value when values are typed in', () => {
-    render(<SearchBar value={''} />);
-    
-}
+test('updates value when values are typed in', async () => {
+    render(<SearchBar />);
+    const textInput = screen.getByRole("textInput");
+    userEvent.type(textInput, 'searching for something');
+    await waitFor(() => {
+        expect(textInput.value).toBe('searching for something');
+    })
+})

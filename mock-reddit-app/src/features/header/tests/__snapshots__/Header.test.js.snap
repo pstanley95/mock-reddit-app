@@ -3,21 +3,41 @@
 exports[`renders correctly 1`] = `
 <DocumentFragment>
   <div
-    class="header"
+    class="headerContainer"
   >
-    <img
-      alt="Reddit logo"
-      class="logo"
-      src="test-file-stub"
-    />
-    <h1>
-      My Reddit Client
-    </h1>
-  </div>
-  <div
-    class="spacer"
-  >
-     
+    <div
+      class="header"
+    >
+      <img
+        alt="Reddit logo"
+        class="logo"
+        src="test-file-stub"
+      />
+      <h1>
+        My Reddit Client
+      </h1>
+    </div>
+    <div
+      class="spacer"
+    >
+       
+    </div>
+    <form
+      class="form"
+    >
+      <input
+        class="textInput"
+        placeholder="Search for things"
+        role="textInput"
+        type="text"
+        value=""
+      />
+      <input
+        class="submitButton"
+        placeholder="Search"
+        type="button"
+      />
+    </form>
   </div>
 </DocumentFragment>
 `;

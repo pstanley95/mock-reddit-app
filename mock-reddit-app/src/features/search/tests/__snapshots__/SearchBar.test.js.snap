@@ -1,3 +1,22 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`renders correctly 1`] = `<DocumentFragment />`;
+exports[`renders correctly 1`] = `
+<DocumentFragment>
+  <form
+    class="form"
+  >
+    <input
+      class="textInput"
+      placeholder="Search for things"
+      role="textInput"
+      type="text"
+      value=""
+    />
+    <input
+      class="submitButton"
+      placeholder="Search"
+      type="button"
+    />
+  </form>
+</DocumentFragment>
+`;

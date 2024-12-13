@@ -13,6 +13,14 @@
     border-radius: 10vh;
 }
 
+.submitButton:hover {
+    background-color: rgb(104, 103, 102);
+}
+
+.submitButton:active {
+    background-color: rgb(29, 204, 181);
+}
+
 .textInput {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-size: 3vh;
