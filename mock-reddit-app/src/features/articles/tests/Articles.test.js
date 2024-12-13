@@ -2,6 +2,7 @@ import React from 'react';
 import { render, screen, waitFor } from '@testing-library/react'
 import '@testing-library/jest-dom'
 import ArticlesList from '../ArticlesList'
+import Header from '../../header/Header';
 import userEvent from '@testing-library/user-event'
 
 const mockArticles = [
@@ -49,4 +50,19 @@ test('article votes change with upvote or downvote', async () => {
         const newVoteCountElement = screen.getByText(10);
         expect(newVoteCountElement).toBeInTheDocument()
     })
+})
+
+test('searching filters for relevant articles', async () => {
+    render((
+        <>
+            <Header />
+            <ArticlesList articles={mockArticles} />
+        </>
+    ))
+    const searchBar = screen.getByRole('textInput');
+    userEvent.type(searchBar, 'Article 1{enter}');
+
+    expect(screen.getByText('Article 1')).toBeInTheDocument();
+    expect(screen.getByText('Article 2')).not.toBeInTheDocument();
+    expect(screen.getByText('Article 3')).not.toBeInTheDocument();
 })

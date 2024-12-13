@@ -1,8 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import styles from './resources/SearchBar.module.css'
+import { updateSearch } from "./searchSlice";
+import { useDispatch } from 'react-redux';
 
 const SearchBar = (props) => {
+    const dispatch = useDispatch();
     const [searchValue, setSearchValue] = useState('');
     
     const handleChange = (e) => {
@@ -13,6 +16,7 @@ const SearchBar = (props) => {
         // do the logic
         e.preventDefault();
         setSearchValue('');
+        dispatch(updateSearch(searchValue));
     }
 
     useEffect(() => {
