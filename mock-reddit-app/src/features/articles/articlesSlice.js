@@ -15,7 +15,9 @@ const loadArticles = createAsyncThunk(
             const articlesTitleAndContentOnly = [];
             rawArticles.map((rawArticle) => articlesTitleAndContentOnly.push({
                 title: rawArticle.data.title,
-                content: rawArticle.data.selftext
+                content: rawArticle.data.selftext,
+                initialVotes: rawArticle.data.score,
+                thumbnail: rawArticle.data.thumbnail
             }))
             return articlesTitleAndContentOnly;
         }

@@ -38,6 +38,10 @@
     text-align: left;
 }
 
+.articleContent img {
+    width: 100%;
+}
+
 .icon {
     width: 7%;
     text-align: center;

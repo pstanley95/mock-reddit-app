@@ -4,7 +4,7 @@ import upvote from './resources/upvote.svg';
 import { useState } from "react";
 
 const Article = (props) => {
-    const { id, title, content, initialVotes } = props;
+    const { id, title, content, initialVotes, thumbnail } = props;
     const [votes, setVotes] = useState(initialVotes);
     
     const handleUpvote = () => {
@@ -20,12 +20,13 @@ const Article = (props) => {
             <div className={styles.articleTitle}>
                 <div className={styles.icon}>
                     <button role='upvote' onClick={handleUpvote} aria-label='Upvote' className={styles.upvote} />
-                    <p>{votes}</p>
+                    <p>{votes > 1000 ? (votes / 1000).toString() + "k" : votes.toString()}</p>
                     <button role='downvote' onClick={handleDownvote} aria-label='Downvote' className={styles.downvote}/>
                 </div>
                 <h2>{title}</h2>
             </div>
             <div className={styles.articleContent}>
+                {thumbnail == 'default' ? <></> : <img src={thumbnail} />}
                 <p>{content}</p>
             </div>
         </div>

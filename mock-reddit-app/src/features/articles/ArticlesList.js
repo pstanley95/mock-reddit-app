@@ -26,7 +26,7 @@ const ArticleList = () => {
     }
     return (
         <ul className={styles.articleList}>
-            {filteredArticles.map((article) => <Article id={article.id} title={article.title} content={article.content} initialVotes={article.initialVotes} />)}
+            {filteredArticles.map((article) => <Article id={article.id} title={article.title} content={article.content} initialVotes={article.initialVotes} thumbnail={article.thumbnail}/>)}
         </ul>
     )
 }
