@@ -17,9 +17,12 @@ const loadArticles = createAsyncThunk(
                 title: rawArticle.data.title,
                 content: rawArticle.data.selftext,
                 initialVotes: rawArticle.data.score,
-                thumbnail: rawArticle.data.thumbnail
+                thumbnail: rawArticle.data.preview?.images?.[0]?.source?.url.replace(/&amp;/g, '&') || 'default',
+                subreddit: rawArticle.data.subreddit
             }))
             return articlesTitleAndContentOnly;
+        } else {
+            throw new Error('Failed to fetch articles');
         }
     }
 )
@@ -52,7 +55,7 @@ const articlesSlice = createSlice({
             .addCase(loadArticles.rejected, (state, action) => {
                 console.log('Failed to retrieve articles');
                 state.isLoading = false;
-                state.hasError = false;
+                state.hasError = true;
                 state.articles = [];
             })
         }
